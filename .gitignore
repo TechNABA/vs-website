@@ -23,3 +23,7 @@ pnpm-debug.log*
 
 # vscode
 .vscode/
+
+# stage map: the plaintext source never goes to the public repo
+tools/stage-map/src/
+tools/stage-map/out/
