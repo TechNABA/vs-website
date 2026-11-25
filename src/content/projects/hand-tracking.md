@@ -6,4 +6,4 @@ order: 2
 status: "active"
 ---
 
-For the hand tracking, we are using Manus Quantum Metagloves. It was important to have a system that was able to send raw data directly in Motive (Optitrack software) to get one single data streaming flow for the real-time and a single FBX file for the off-line pipeline.
+For the hand tracking, we are using Manus Quantum Metagloves and Prime X gloves, usually connected by USB to the tracking workstation. It was important to have a system that was able to send raw data directly in Motive (Optitrack software) to get one single data streaming flow for the real-time and a single FBX file for the off-line pipeline.

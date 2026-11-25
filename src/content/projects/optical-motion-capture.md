@@ -12,4 +12,4 @@ Optitrack is used for the tracking system. Inside the volume, there are:
 - 10 Primex 22 Cameras
 - Optitrack eSync for Genlock & Timecode
 
-There is a computer dedicated to motion capture operations as well as a network switch for data communication.
+There is a computer dedicated to motion capture operations as well as two PoE network switches for data communication: each camera uses a single Cat6e cable for power and data.

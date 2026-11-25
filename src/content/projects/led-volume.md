@@ -24,4 +24,4 @@ status: "active"
 - Panel Dimension: 600x400 mm
 - Total Number of Panel (WxH): 5x5
 - Total LED Wall Dimension: 300x200 cm (6 m2)
-- Led Processor: Novastar H2
+- Led Processor: Novastar H2 (the same unit drives back wall and ceiling)

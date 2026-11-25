@@ -6,4 +6,4 @@ order: 3
 status: "active"
 ---
 
-When it comes to Motion Capture, it is crucial to have multiple reference footage of the captured scene. Over time we are adding more and more AJA Ki Pro Rack recorders to give the ability to record multiple cameras in different locations in the studio.
+When it comes to Motion Capture, it is crucial to have multiple reference footage of the captured scene. Over time we are adding more and more AJA Ki Pro Rack recorders to give the ability to record multiple cameras in different locations in the studio. The main recorder is an AJA Ki Pro Ultra 12G with four SDI inputs (main camera, Roland program output, FX6 and Komodo); the Ki Pro Racks record the stereo helmet cameras, or the FX6 and Komodo as an alternative.
