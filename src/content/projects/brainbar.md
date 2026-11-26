@@ -14,7 +14,7 @@ The **Brainbar** is the centre of operation of every virtual production set, and
 - SSD: 3x M.2 1TB PCIe NVMe
 - GPU: Nvidia GeForce RTX 4090, 24GB
 - DeckLink 8K Pro
-- ESI Juli@ Ex
+- ESI Juli@ eX
 
 **WORKSTATION 02 – CAMERA TRACKING & STREAMING**
 - CPU: Intel Core i7-12700K processor (12 Core , 3.6GHz to 5.0GHz)
