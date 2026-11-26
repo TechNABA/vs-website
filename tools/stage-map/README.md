@@ -31,5 +31,10 @@ The push to `main` deploys the site in about two minutes.
 
 ## Change the password
 
-Run `build.ps1` with the new password in `$env:STATICRYPT_PASSWORD`, commit and push. Visitors who
-ticked "remember me" are asked for the new one.
+Run `build.ps1 -NewPassword` with the new password in `$env:STATICRYPT_PASSWORD`, commit and push. Visitors
+who ticked "remember me" are asked for the new one. Without `-NewPassword` the script refuses a password
+that does not open the published map, so a typo cannot lock everyone out.
+
+A new password does not cut off whoever has the old one: every earlier encrypted version of the map
+stays in the public repo's history and still opens with the old password. If the password leaks,
+changing it is not enough: the old versions have to leave the history too.
