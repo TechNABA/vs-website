@@ -3,7 +3,7 @@ title: "Lens Data"
 tab: "in-camera-vfx"
 category: "Camera"
 order: 4
-status: "planned"
+status: "wip"
 ---
 
-Integration of FIZ data within the pipeline will be one of the next steps. We plan to integrate a system such as Indiemark 3 or FIZTrack and communicate the data through the appropriate Live Link plugins.
+We are building custom 3D-printed FIZ encoders that bring real focus, iris and zoom data from the lens into Unreal, onto the CineCamera. The prototype has not yet been tested end to end.
