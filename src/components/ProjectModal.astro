@@ -127,6 +127,9 @@ const dataJson = JSON.stringify(payload);
     return out.join('\n');
   }
 
+  // titles and paths go into HTML attributes: a quote in a title must not end the attribute
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
   function statusLabel(s) {
     return s === 'wip' ? 'WIP' : s === 'planned' ? 'Planned' : null;
   }
@@ -141,7 +144,7 @@ const dataJson = JSON.stringify(payload);
     // Cover
     const label = statusLabel(p.status);
     coverEl.innerHTML = p.cover
-      ? `<img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover" />`
+      ? `<img src="${esc(p.cover)}" alt="${esc(p.title)}" class="w-full h-full object-cover" />`
       : `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-900 to-black"><span class="text-neutral-700 text-xs tracking-[0.2em] uppercase">No cover image yet</span></div>`;
     if (label) {
       coverEl.insertAdjacentHTML(
@@ -155,8 +158,8 @@ const dataJson = JSON.stringify(payload);
       videoEl.innerHTML = `
         <div class="relative w-full rounded-md overflow-hidden bg-black border border-border-subtle" style="aspect-ratio: 16 / 9;">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/${p.youtubeId}"
-            title="${p.title}"
+            src="https://www.youtube-nocookie.com/embed/${esc(p.youtubeId)}"
+            title="${esc(p.title)}"
             class="absolute inset-0 w-full h-full"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -178,6 +181,8 @@ const dataJson = JSON.stringify(payload);
   }
 
   function closeModal() {
+    // a hidden iframe keeps playing: remove the player
+    videoEl.innerHTML = '';
     modal.classList.add('hidden');
     modal.classList.remove('flex');
     document.body.style.overflow = '';
@@ -193,9 +198,11 @@ const dataJson = JSON.stringify(payload);
 
   // Close handlers
   closeBtn.addEventListener('click', closeModal);
+  // Click on the backdrop, pressed and released there: a text selection that ends outside the box does not close it
+  let pressedOnBackdrop = false;
+  modal.addEventListener('mousedown', (e) => { pressedOnBackdrop = e.target === modal; });
   modal.addEventListener('click', (e) => {
-    // Click on backdrop (not inside the content box)
-    if (e.target === modal) closeModal();
+    if (e.target === modal && pressedOnBackdrop) closeModal();
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();

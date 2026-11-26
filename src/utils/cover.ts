@@ -25,8 +25,9 @@ function listImageFiles(): string[] {
   if (cachedFiles !== null) return cachedFiles;
   try {
     cachedFiles = fs.readdirSync(PUBLIC_IMAGES_DIR);
-  } catch {
-    cachedFiles = [];
+  } catch (e) {
+    // run the build from the repo root: the folder is resolved from the working directory
+    throw new Error(`Cannot read ${PUBLIC_IMAGES_DIR}: every card would ship without its cover. (${(e as Error).message})`);
   }
   return cachedFiles;
 }
